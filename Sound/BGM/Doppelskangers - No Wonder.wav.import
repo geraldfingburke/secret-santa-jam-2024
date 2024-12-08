@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsv6mdb7hqcpo"
+path="res://.godot/imported/Doppelskangers - No Wonder.wav-1285ac620376bf2f44b289b9c2a1dc5d.sample"
+
+[deps]
+
+source_file="res://Sound/BGM/Doppelskangers - No Wonder.wav"
+dest_files=["res://.godot/imported/Doppelskangers - No Wonder.wav-1285ac620376bf2f44b289b9c2a1dc5d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

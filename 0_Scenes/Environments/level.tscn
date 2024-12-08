@@ -1,0 +1,509 @@
+[gd_scene load_steps=25 format=3 uid="uid://dfxv0xp8go6h5"]
+
+[ext_resource type="ArrayMesh" uid="uid://lbopvcc41xkh" path="res://Art/Cars/Car 01/Car.obj" id="1_vf5ua"]
+[ext_resource type="Texture2D" uid="uid://cfa8wkxt0auxj" path="res://Art/Cars/Car 01/car_snow_red.png" id="2_vmsfl"]
+[ext_resource type="Texture2D" uid="uid://87tlbyto8ab5" path="res://Art/Ground/Materials/snow_dirty.jpg" id="3_cl33j"]
+[ext_resource type="Texture2D" uid="uid://b3acffxjjlqkx" path="res://Art/Ground/Materials/gravel_02_nm.png" id="4_1h7ih"]
+[ext_resource type="Script" path="res://0_Scenes/Environments/CarController.gd" id="5_gjl6k"]
+[ext_resource type="Script" path="res://0_Scenes/Environments/Drone.gd" id="5_kmdtp"]
+[ext_resource type="ArrayMesh" uid="uid://3kaxu8nwu6oe" path="res://Art/Cars/Car 05/Car5_Police.obj" id="5_nv64t"]
+[ext_resource type="Texture2D" uid="uid://s40h3635bsb6" path="res://Art/Metal/Materials/metal_rusty_02.png" id="5_x3ob1"]
+[ext_resource type="Shader" path="res://addons/vaporwavesky/vaporwave.gdshader" id="6_ubgkp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3r16q"]
+shader = ExtResource("6_ubgkp")
+shader_parameter/sky_color = Color(0.1, 0.07, 0.2, 1)
+shader_parameter/sky_horizon_color = Color(0.56, 0.18, 0.42, 1)
+shader_parameter/sky_horizon_decay = 3.0
+shader_parameter/ground_color = Color(0, 0, 0, 1)
+shader_parameter/ground_horizon_color = Color(0.1, 0, 0.07, 1)
+shader_parameter/ground_horizon_decay = 1.0
+shader_parameter/stars_enabled = true
+shader_parameter/stars_below_horizon = false
+shader_parameter/star_color = Color(0.95, 0.9, 0.6, 1)
+shader_parameter/star_radius = 0.3
+shader_parameter/star_density = 5.0
+shader_parameter/star_randomness = 1.0
+shader_parameter/star_seed = Vector2(0, 0)
+shader_parameter/grid_enabled = true
+shader_parameter/grid_color = Color(0.18, 0.92, 0.74, 1)
+shader_parameter/grid_depth = 2.0
+shader_parameter/grid_spacing = 1.0
+shader_parameter/grid_thickness = 0.03
+shader_parameter/grid_max_distance = 25.0
+shader_parameter/grid_max_distance_fade = 0.3
+shader_parameter/grid_energy = 1.0
+shader_parameter/sun_radius = 10.0
+shader_parameter/sun_smoothing = 0.35
+shader_parameter/sun_glow_color = Color(0.96, 0.9, 0.35, 1)
+shader_parameter/sun_glow_radius = 30.0
+shader_parameter/sun_glow_intensity = 0.5
+shader_parameter/sun_gradient_enabled = true
+shader_parameter/sun_color_1 = Color(0.96, 0.9, 0.35, 1)
+shader_parameter/sun_color_2 = Color(0.96, 0.35, 0.9, 1)
+shader_parameter/sun_gradient_pos_frac = 0.6
+shader_parameter/sun_gradient_span_frac = 0.8
+shader_parameter/sun_banding_enabled = true
+shader_parameter/sun_banding_base_gap = 0.03
+shader_parameter/sun_banding_gap_mul = 1.1
+shader_parameter/sun_banding_stop_height = 0.7
+shader_parameter/sun_banding_thickness = 0.01
+
+[sub_resource type="Sky" id="Sky_inu6r"]
+sky_material = SubResource("ShaderMaterial_3r16q")
+
+[sub_resource type="Environment" id="Environment_ac108"]
+background_mode = 2
+background_color = Color(0.172549, 0.0196078, 0, 1)
+sky = SubResource("Sky_inu6r")
+glow_intensity = 8.0
+glow_strength = 2.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_f8yi0"]
+auto_exposure_enabled = true
+dof_blur_far_transition = 177.48
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_blig7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8yhe"]
+albedo_texture = ExtResource("2_vmsfl")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2fvm"]
+size = Vector3(2.34915, 0.582518, 6.01556)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rp6g0"]
+bounce = 0.09
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kk5vf"]
+size = Vector3(96.7709, 0.960571, 95.926)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cft8g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njcat"]
+albedo_texture = ExtResource("3_cl33j")
+normal_enabled = true
+normal_texture = ExtResource("4_1h7ih")
+uv1_scale = Vector3(100, 100, 100)
+texture_filter = 0
+grow_amount = -10.427
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2q2g0"]
+bounce = 0.16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ev0ug"]
+size = Vector3(100.903, 9.95015, 1.04492)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nur17"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1luvn"]
+albedo_texture = ExtResource("5_x3ob1")
+uv1_scale = Vector3(100, 10, 0)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.65486, 0.755751, 0, -0.755751, -0.65486, 0, -0.41404, 0)
+light_color = Color(0, 0.423529, 0.580392, 1)
+light_energy = 2.131
+light_indirect_energy = 1.97
+light_volumetric_fog_energy = 1.939
+shadow_enabled = true
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 28.0
+directional_shadow_pancake_size = 0.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ac108")
+camera_attributes = SubResource("CameraAttributesPractical_f8yi0")
+
+[node name="Player" type="VehicleBody3D" parent="." groups=["targets"]]
+transform = Transform3D(0.698952, 0, -0.715168, 0, 1, 0, 0.715168, 0, 0.698952, 32.4228, 4.15764, -36.601)
+mass = 8.07
+physics_material_override = SubResource("PhysicsMaterial_blig7")
+script = ExtResource("5_gjl6k")
+speed = 150
+handling = 50
+
+[node name="Car" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542148, 0, -0.365057)
+mesh = ExtResource("1_vf5ua")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_d8yhe")
+
+[node name="Camera3D" type="Camera3D" parent="Player/Car"]
+transform = Transform3D(-0.999897, -0.0116931, 0.0083114, -0.00730746, 0.913694, 0.406336, -0.0123454, 0.406234, -0.913686, 0.035066, 4.77476, -6.98767)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528244, 0.401564, -0.328217)
+shape = SubResource("BoxShape3D_f2fvm")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448881, 0.470822, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.441033, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43224, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="RigidBody3D6" type="VehicleBody3D" parent="." groups=["targets"]]
+transform = Transform3D(0.593925, 0, 0.804521, 0, 1, 0, -0.804521, 0, 0.593925, -45.2917, 4.15764, -38.6066)
+mass = 8.07
+physics_material_override = SubResource("PhysicsMaterial_blig7")
+script = ExtResource("5_kmdtp")
+max_steering_angle = 10.0
+stuck_distance_threshold = 2.0
+backup_duration = 5.0
+
+[node name="Car" type="MeshInstance3D" parent="RigidBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542148, 0, -0.365057)
+mesh = ExtResource("5_nv64t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528244, 0.401564, -0.328217)
+shape = SubResource("BoxShape3D_f2fvm")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="RigidBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448881, 0.470822, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="RigidBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.441033, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="RigidBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="RigidBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43224, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="RigidBody3D7" type="VehicleBody3D" parent="." groups=["targets"]]
+transform = Transform3D(0.00722565, 0, 0.999974, 0, 1, 0, -0.999974, 0, 0.00722565, -46.1273, 4.15764, -10.5291)
+mass = 8.07
+physics_material_override = SubResource("PhysicsMaterial_blig7")
+script = ExtResource("5_kmdtp")
+max_steering_angle = 10.0
+stuck_distance_threshold = 2.0
+backup_duration = 5.0
+
+[node name="Car" type="MeshInstance3D" parent="RigidBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542148, 0, -0.365057)
+mesh = ExtResource("5_nv64t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528244, 0.401564, -0.328217)
+shape = SubResource("BoxShape3D_f2fvm")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="RigidBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448881, 0.470822, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="RigidBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.441033, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="RigidBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="RigidBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43224, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="RigidBody3D8" type="VehicleBody3D" parent="." groups=["targets"]]
+transform = Transform3D(-0.729387, 0, 0.684102, 0, 1, 0, -0.684102, 0, -0.729387, -45.1246, 4.15764, 36.7682)
+mass = 8.07
+physics_material_override = SubResource("PhysicsMaterial_blig7")
+script = ExtResource("5_kmdtp")
+max_steering_angle = 10.0
+stuck_distance_threshold = 2.0
+backup_duration = 5.0
+
+[node name="Car" type="MeshInstance3D" parent="RigidBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542148, 0, -0.365057)
+mesh = ExtResource("5_nv64t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528244, 0.401564, -0.328217)
+shape = SubResource("BoxShape3D_f2fvm")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="RigidBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448881, 0.470822, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="RigidBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.441033, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="RigidBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="RigidBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43224, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="RigidBody3D9" type="VehicleBody3D" parent="." groups=["targets"]]
+transform = Transform3D(-0.997282, 0, -0.0736733, 0, 1, 0, 0.0736733, 0, -0.997282, -4.51245, 4.15764, 36.601)
+mass = 8.07
+physics_material_override = SubResource("PhysicsMaterial_blig7")
+script = ExtResource("5_kmdtp")
+max_steering_angle = 10.0
+stuck_distance_threshold = 2.0
+backup_duration = 5.0
+
+[node name="Car" type="MeshInstance3D" parent="RigidBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542148, 0, -0.365057)
+mesh = ExtResource("5_nv64t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528244, 0.401564, -0.328217)
+shape = SubResource("BoxShape3D_f2fvm")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="RigidBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448881, 0.470822, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="RigidBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.441033, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="RigidBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="RigidBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43224, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="RigidBody3D10" type="VehicleBody3D" parent="." groups=["targets"]]
+transform = Transform3D(-0.78314, 0, -0.621845, 0, 1, 0, 0.621845, 0, -0.78314, 28.2446, 4.15764, 34.0941)
+mass = 8.07
+physics_material_override = SubResource("PhysicsMaterial_blig7")
+script = ExtResource("5_kmdtp")
+max_steering_angle = 10.0
+stuck_distance_threshold = 2.0
+backup_duration = 5.0
+
+[node name="Car" type="MeshInstance3D" parent="RigidBody3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542148, 0, -0.365057)
+mesh = ExtResource("5_nv64t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528244, 0.401564, -0.328217)
+shape = SubResource("BoxShape3D_f2fvm")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="RigidBody3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448881, 0.470822, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="RigidBody3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.441033, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="RigidBody3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="RigidBody3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43224, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="RigidBody3D11" type="VehicleBody3D" parent="." groups=["targets"]]
+transform = Transform3D(0.358433, 0, -0.933555, 0, 1, 0, 0.933555, 0, 0.358433, 30.5844, 4.15764, -1.67128)
+mass = 8.07
+physics_material_override = SubResource("PhysicsMaterial_blig7")
+script = ExtResource("5_kmdtp")
+max_steering_angle = 10.0
+stuck_distance_threshold = 2.0
+backup_duration = 5.0
+
+[node name="Car" type="MeshInstance3D" parent="RigidBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542148, 0, -0.365057)
+mesh = ExtResource("5_nv64t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528244, 0.401564, -0.328217)
+shape = SubResource("BoxShape3D_f2fvm")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="RigidBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448881, 0.470822, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="RigidBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.441033, 1.63286)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="RigidBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4747, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="RigidBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43224, 0.447058, -1.93)
+use_as_traction = true
+wheel_friction_slip = 2.0
+
+[node name="Area3D" type="RigidBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_rp6g0")
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.34015, -0.430486, -0.312138)
+shape = SubResource("BoxShape3D_kk5vf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -7.02461, -0.428544, 0)
+mesh = SubResource("BoxMesh_cft8g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_njcat")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.36929, 4.04899, -49.4548)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 1549.85
+physics_material_override = SubResource("PhysicsMaterial_2q2g0")
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24926, -0.00733185, 0.00488281)
+shape = SubResource("BoxShape3D_ev0ug")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D2"]
+transform = Transform3D(103.013, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nur17")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1luvn")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.36929, 4.04899, 49.6521)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 1549.85
+physics_material_override = SubResource("PhysicsMaterial_2q2g0")
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24926, -0.00733185, 0.00488281)
+shape = SubResource("BoxShape3D_ev0ug")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D3"]
+transform = Transform3D(103.013, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nur17")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1luvn")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 42.7691, 4.04899, 0.683573)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 1549.85
+physics_material_override = SubResource("PhysicsMaterial_2q2g0")
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24926, -0.00733185, 0.00488281)
+shape = SubResource("BoxShape3D_ev0ug")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D4"]
+transform = Transform3D(103.013, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nur17")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1luvn")
+
+[node name="RigidBody3D5" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -56.5049, 4.04899, -0.152064)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 1549.85
+physics_material_override = SubResource("PhysicsMaterial_2q2g0")
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24926, -0.00733185, 0.00488281)
+shape = SubResource("BoxShape3D_ev0ug")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D5"]
+transform = Transform3D(103.013, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nur17")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1luvn")
