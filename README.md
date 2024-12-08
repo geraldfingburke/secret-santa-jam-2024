@@ -3,6 +3,10 @@ My game for the 2024 edition of the Secret Santa Jam
 
 ## Credits
 
+### Art
+
+- [PSX Style Cars - GGBot](https://ggbot.itch.io/psx-style-cars)
+
 ### Music
 
 All music sourced from the [Free Music Archive](https://freemusicarchive.org/)
