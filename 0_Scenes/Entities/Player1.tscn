@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce3w2vaij571t"]
+
+[ext_resource type="Script" path="res://0_Scenes/Environments/CarController.gd" id="1_jv1ou"]
+[ext_resource type="ArrayMesh" uid="uid://lbopvcc41xkh" path="res://Art/Cars/Car 01/Car.obj" id="2_bf8bd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_blig7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n0swt"]
+points = PackedVector3Array(1.35059, 1.46035, 1.40602, 1.1325, -0.039128, -1.5066, 1.1325, 0.092196, -1.8323, 1.08819, 0.485317, -2.80518, 1.08819, 0.625367, -2.86358, 1.01833, 1.36159, -2.60109, 0.896138, 2.08951, -2.11044, 0.914917, 2.13527, -0.93407, 0.952475, 2.0844, 0.813023, 1.27773, 1.53314, 1.42649, 1.07692, 1.20153, 2.91471, 1.12825, 0.601955, 2.81478, 1.12825, 0.461904, 2.81478, 1.1325, 0.092196, 2.47704, 1.1325, -0.039128, 2.15134, -0.859328, -0.039128, -1.51443, 0.762181, 0.402095, -2.97796, 0.984775, 0.366338, -2.76605, 1.0316, 0.485317, -2.94485, 1.0316, 0.625367, -3.00325, 1.05188, 0.840338, -2.95268, -0.000248671, 1.23431, -2.81843, -0.896385, 2.08951, -2.11044, -0.915164, 2.13527, -0.93407, -0.000248671, 2.0844, 0.956908, -0.000248671, 1.20047, 2.98033, 0.574641, 0.683686, 3.06823, 1.0316, 0.601955, 2.95445, 1.0316, 0.461904, 2.95445, 0.574641, 0.402095, 3.04716, 0.85883, 0.092196, 2.47704, -0.859328, -0.039128, 2.15977, -1.13275, -0.039128, -1.51443, -0.762428, 0.402095, -2.97796, 0.762181, 0.683686, -3.08212, -0.000248671, 1.12959, -2.88104, -0.762428, 0.683686, -3.08212, -1.05213, 0.840338, -2.95268, -1.01857, 1.36159, -2.60109, -1.04587, 1.33818, -2.12308, -1.09194, 1.3684, -0.947917, -1.14277, 1.36968, 0.944867, -0.952972, 2.0844, 0.813023, -1.07716, 1.20153, 2.91471, -0.574888, 0.683686, 3.06823, -0.574888, 0.402095, 3.04716, -1.13275, 0.0979428, 2.48245, -1.13275, -0.039128, 2.15977, -1.13275, 0.0979428, -1.83772, -0.985022, 0.366338, -2.76605, -1.20737, 0.741792, 1.73834, -1.03184, 0.485317, -2.94485, -1.03184, 0.625367, -3.00325, -1.08843, 0.625367, -2.86358, -1.14201, 0.884823, -1.66855, -1.16004, 0.879076, -1.33984, -1.14277, 1.35882, 1.4867, -1.17356, 0.925476, 2.27776, -1.16981, 0.924411, 2.33616, -1.15228, 0.72668, 2.59865, -1.12849, 0.601955, 2.81478, -1.12849, 0.461904, 2.81478, -1.03184, 0.461904, 2.95445, -1.03184, 0.601955, 2.95445, -1.13275, 0.423379, -1.96956, -1.08843, 0.485317, -2.80518)
+
+[node name="Car1" type="VehicleBody3D" groups=["targets"]]
+transform = Transform3D(0.698952, 0, -0.715168, 0, 1, 0, 0.715168, 0, 0.698952, 32.4228, 0.114852, -36.3652)
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_blig7")
+can_sleep = false
+continuous_cd = true
+script = ExtResource("1_jv1ou")
+speed = 200
+handling = 50
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.148, 0.470822, 2.14387)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15642, 0.441033, 2.15897)
+use_as_traction = true
+use_as_steering = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11428, 0.447058, -1.53255)
+use_as_traction = true
+wheel_friction_slip = 5.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10427, 0.447058, -1.52773)
+use_as_traction = true
+wheel_friction_slip = 5.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+autoplay = true
+max_distance = 100.0
+
+[node name="Car" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_bf8bd")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_n0swt")
